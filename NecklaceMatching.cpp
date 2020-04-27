@@ -68,6 +68,12 @@ int main(void)
   int mode;
   std::cout << "Select mode: (1: Necklace Matching, 2: Repeats, 3: enable1 List Find)" << std::endl;
   std::cin >> mode;
+  while(mode != 1 && mode != 2 && mode != 3)
+    {
+      std::cout << "Invalid mode. Please try again." << std::endl;
+      std::cout << "Select mode: (1: Necklace Matching, 2: Repeats, 3: enable1 List Find)" << std::endl;
+      std::cin >> mode;
+    }
   switch (mode)
     {
     case 1: // necklace matching
@@ -85,7 +91,7 @@ int main(void)
 	    {
 	      std::cout << "Please enter a valid string. Continue?(y/n)" << std::endl;
 	    }
-	  if (cont.compare("n") == 0) break;
+	  if (cont.compare("n") == 0) return 0;
 	}
     case 2: // repeats
       while (true)
@@ -100,9 +106,9 @@ int main(void)
 	    {
 	      std::cout << "Please enter a valid string. Continue?(y/n)" << std::endl;
 	    }
-	  if (cont.compare("n") == 0) break;
+	  if (cont.compare("n") == 0) return 0;
 	}
-    case 3: // read file
+    case 3: // read file      
       time_0 = get_time();
       std::ifstream myfile ("enable1.txt");
       std::string line;
